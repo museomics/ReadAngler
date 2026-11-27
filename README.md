@@ -3,32 +3,35 @@ Extract FASTQ records whose headers are present in an (MGE) FASTA alignment outp
 
 ## Installation
 
-read_angler requires [seqkit](https://bioinf.shenwei.me/seqkit/) = 2.0, GNU coreutils, and awk.
+read_angler requires [seqkit](https://bioinf.shenwei.me/seqkit/) >= 2.0, GNU coreutils, and awk.
 
+To install Seqkit:
 ```bash
 conda install bioconda::seqkit
-# Or
-pip install seqkit
 ```
 
-Then clone or download `read_angler.sh` and run it directly.
+GNU coreutils and awk are pre-installed on most Linux systems and macOS.
+
+### Getting started
+
+Clone or download `ReadAngler.sh` and run it directly.
 ```bash
-git clone https://github.com/your-org/read_angler.git
-cd read_angler
-bash read_angler.sh -h
+git clone https://github.com/museomics/ReadAngler.git
+cd ReadAngler
+bash ReadAngler.sh -h
 ```
 
 ## Overview
 
 `read_angler.sh` filters FASTQ files to retain only reads whose IDs appear in a FASTA alignment. Two matching modes are available:
 
-> [!NOTE]
-> Matching is STRICT by default
-
 - **Strict mode** (default): only reads whose IDs are present in the FASTA are extracted. R1 and R2 outputs are not guaranteed to be in sync.
 - **Pair rescue mode** (`-k`): matching is performed on the FRAGMENT key (the read header with the trailing `_1`/`_2` read-number stripped). Any fragment matched by either mate is pulled from both FASTQs, so R1 and R2 are equal in size and in sync.
 
-Read-pair assignment uses the read-number field of the AVITI/bases2fastq header (e.g. `...:0526_1:N:0:IDX+IDX` ? R1). If no such field is found, all IDs are treated as single-end.
+Read-pair assignment uses the read-number field of the AVITI/bases2fastq header (e.g. `...:0526_1:N:0:IDX+IDX` -> R1). If no such field is found, all IDs are treated as single-end.
+
+> [!NOTE]
+> Matching is STRICT by default
 
 ## Usage
 
