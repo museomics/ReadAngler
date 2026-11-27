@@ -38,7 +38,7 @@ Read-pair assignment uses the read-number field of the AVITI/bases2fastq header 
 ### Single sample
 
 ```bash
-sbatch read_angler.sh -f aln.fasta -1 sample_R1.fastq.gz \
+sbatch ReadAngler.sh -f aln.fasta -1 sample_R1.fastq.gz \
     [-2 sample_R2.fastq.gz] -o out_dir
 ```
 
@@ -47,7 +47,7 @@ The `-2` argument is optional; if omitted, the mate FASTQ is auto-detected from 
 ### Batch mode (SLURM array)
 
 ```bash
-sbatch --array=0-$((N-1)) read_angler.sh \
+sbatch --array=0-$((N-1)) ReadAngler.sh \
     -F fasta_dir -Q fastq_dir -o out_dir
 ```
 
