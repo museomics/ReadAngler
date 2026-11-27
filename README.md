@@ -3,11 +3,11 @@ Extract FASTQ records whose headers are present in an (MGE) FASTA alignment outp
 
 ## Installation
 
-read_angler requires [seqkit](https://bioinf.shenwei.me/seqkit/) >= 2.0, GNU coreutils, and awk.
+read_angler requires [SeqKit](https://bioinf.shenwei.me/seqkit/) >= 2.0, GNU coreutils, and awk.
 
-To install Seqkit:
+To install SeqKit into a conda environment `read_qc`:
 ```bash
-conda install bioconda::seqkit
+conda create -n read_qc bioconda::seqkit
 ```
 
 GNU coreutils and awk are pre-installed on most Linux systems and macOS.
