@@ -31,7 +31,7 @@ bash ReadAngler.sh -h
 Read-pair assignment uses the read-number field of the AVITI/bases2fastq header (e.g. `...:0526_1:N:0:IDX+IDX` -> R1). If no such field is found, all IDs are treated as single-end.
 
 > [!NOTE]
-> Matching is STRICT by default
+> Matching is STRICT by default.
 
 ## Usage
 
